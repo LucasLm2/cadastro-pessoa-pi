@@ -3,42 +3,58 @@ package com.company;
 public class Pessoa {
     private String nome;
     private String endereco;
-    private int telefone;
+    private String telefone;
 
-    public Pessoa(String x, String y, int w){
-        this.nome = x;
-        this.endereco = y;
-        this.telefone = w;
+    public Pessoa(String nome, String endereco, String telefone) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.telefone = telefone;
     }
 
-    public Pessoa(){
+    public Pessoa() {
         this.nome = "";
         this.endereco = "";
-        this.telefone = 0;
+        this.telefone = "";
     }
 
-    public String getNome(){
+    public String getNome() {
         return this.nome;
     }
-
-    public String getEndereco(){
-        return this.endereco;
+    
+    public String setNome(String nome) {
+        return this.nome = nome;
     }
 
-    public int getTelefone(){
+    public String setEndereco(String endereco) {
+        return this.endereco = endereco;
+    }
+    
+    public String getEndereco() {
+        return this.endereco;
+    }
+    
+    public String setTelefone(String telefone) {
+        return this.telefone = telefone;
+    }
+
+    public String getTelefone() {
         return this.telefone;
     }
 
-    public String setNome(String x){
-        return this.nome = x;
+    public boolean gravarArquivo() {
+    	return true;
     }
-
-    public String setEndereco(String y){
-        return this.endereco = y;
+    
+    public boolean excluirArquivo() {
+    	return true;
     }
-
-    public int setTelefone(int w){
-        return this.telefone = w;
+    
+    public boolean atualizarArquivo() {
+    	return true;
     }
-
+    
+    public boolean lerArquivo() {
+    	return true;
+    }
+    
 }
