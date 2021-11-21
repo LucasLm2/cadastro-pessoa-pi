@@ -38,5 +38,15 @@ public class Aluno extends PessoaFisica {
     public void setStatusAluno(String statusAluno) {
         this.statusAluno = statusAluno;
     }
+    
+    public String toString() {
+    	String aluno = this.getNome()  + ", " + this.getEndereco()  + ", ";
+    	aluno += this.getTelefone()  + ", " + this.getCpf()  + ", ";
+    	aluno += this.getSexo()  + ", " + this.getDataNascimento()  + ", ";
+    	aluno += this.getEmail()  + ", " + this.getCurso()  + ", ";
+    	aluno += this.matriculaAluno + ", " + this.dataMatricula + ", "; 
+    	aluno += this.curso + ", " + this.statusAluno + ";";
+    	return aluno;
+    }
 
 }

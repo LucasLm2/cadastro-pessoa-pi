@@ -119,14 +119,26 @@ public class Main {
 
             switch (menuInput){
                 case 1:
+                	System.out.println(
+                			"Nome, Endereco, Telefone, Cpf, Sexo, Data de Nascimento, Email, Curso, Matricula, Data da Matricula, Curso, Status"
+                	);
+                	new Arquivo("Aluno").lerArquivo();
                     menuInput = 1;
                     break;
 
                 case 2:
+                	System.out.println(
+                			"Nome, Endereco, Telefone, Cpf, Sexo, Data de Nascimento, Email, Matricula, Data de Contatacao, Materia, Horario, Status"
+                	);
+                	new Arquivo("Professor").lerArquivo();
                     menuInput = 1;
                     break;
 
                 case 3:
+                	System.out.println(
+                			"Nome, Endereco, Telefone, Cnpj, Nome Fantasia, Produto, Data da Ultima Entrega, Data da Proxima Entrega, Status"
+                	);
+                	new Arquivo("Fornecedor").lerArquivo();
                     menuInput = 1;
                     break;
 
@@ -145,6 +157,7 @@ public class Main {
     private static void criarCadastro(String tipo){
         userInput = new Scanner(System.in);
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        
         if(tipo == "Aluno") {
             Aluno aluno = new Aluno();
 
@@ -180,7 +193,7 @@ public class Main {
                 aluno.setEmail(userInput.nextLine());
 
                 System.out.println("# Digite o Curso do Aluno:\n>>");
-                aluno.setNome(userInput.nextLine());
+                aluno.setCurso(userInput.nextLine());
 
                 aluno.setStatusAluno("Ativo");
 
@@ -189,15 +202,11 @@ public class Main {
 
             } while (condicao == 'N');
 
-            Arquivo arquivo = new Arquivo();
-            boolean resultado = arquivo.gravarArquivo(aluno, tipo);
+            Arquivo arquivo = new Arquivo(tipo);
+            boolean resultado = arquivo.gravarArquivo(aluno);
 
             menssagem(resultado, tipo);
-
-            return;
-        }
-
-        if(tipo == "Professor") {
+        } else if(tipo == "Professor") {
             Professor professor = new Professor();
 
             char condicao;
@@ -240,10 +249,10 @@ public class Main {
                 }
 
                 System.out.println("# Digite o Matéria do Professor:\n>>");
-                professor.setNome(userInput.nextLine());
+                professor.setMateria(userInput.nextLine());
 
                 System.out.println("# Digite o Horário do Professor (Formato 24 Horas):\n>>");
-                professor.setNome(userInput.nextLine());
+                professor.setHorario(userInput.nextLine());
 
                 professor.setStatusProfessor("Ativo");
 
@@ -252,15 +261,11 @@ public class Main {
 
             } while (condicao == 'N');
 
-            Arquivo arquivo = new Arquivo();
-            boolean resultado = arquivo.gravarArquivo(professor, tipo);
+            Arquivo arquivo = new Arquivo(tipo);
+            boolean resultado = arquivo.gravarArquivo(professor);
 
             menssagem(resultado, tipo);
-
-            return;
-        }
-
-        if(tipo == "Fornecedor") {
+        } else if(tipo == "Fornecedor") {
             Fornecedor fornecedor = new Fornecedor();
 
             char condicao;
@@ -309,15 +314,11 @@ public class Main {
 
             } while (condicao == 'N');
 
-            Arquivo arquivo = new Arquivo();
-            boolean resultado = arquivo.gravarArquivo(fornecedor, tipo);
+            Arquivo arquivo = new Arquivo(tipo);
+            boolean resultado = arquivo.gravarArquivo(fornecedor);
 
             menssagem(resultado, tipo);
-
-            return;
         }
-
-        return;
     }
 
     private static void menssagem(boolean resultado, String tipo) {

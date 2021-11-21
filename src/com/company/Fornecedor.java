@@ -39,5 +39,14 @@ public class Fornecedor extends PessoaJuridica {
     public void setStatus(String status) {
         this.status = status;
     }
-
+    
+    public String toString() {
+    	String aluno = this.getNome()  + ", " + this.getEndereco()  + ", ";
+    	aluno += this.getTelefone()  + ", " + this.getCnpj()  + ", ";
+    	aluno += this.getNomeFantasia()  + ", " + this.produto  + ", ";
+    	aluno += this.dataUltimaEntrega  + ", " + this.dataProximaEntrega  + ", ";
+    	aluno += this.status +  ";";
+    	return aluno;
+    }
+    
 }

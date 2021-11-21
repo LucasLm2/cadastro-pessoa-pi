@@ -51,5 +51,15 @@ public class Professor extends PessoaFisica {
     public void setStatusProfessor(String statusProfessor) {
         this.statusProfessor = statusProfessor;
     }
+    
+    public String toString() {
+    	String aluno = this.getNome()  + ", " + this.getEndereco()  + ", ";
+    	aluno += this.getTelefone()  + ", " + this.getCpf()  + ", ";
+    	aluno += this.getSexo()  + ", " + this.getDataNascimento()  + ", ";
+    	aluno += this.getEmail()  + ", " + this.matriculaProfessor  + ", ";
+    	aluno += this.dataContatacao + ", " + this.materia + ", "; 
+    	aluno += this.horario + ", " + this.statusProfessor + ";";
+    	return aluno;
+    }
 
 }
